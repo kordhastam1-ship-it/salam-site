@@ -22,40 +22,58 @@ body {
 }
 
 .container {
-    width: 85%;
-    max-width: 380px;
-    padding: 35px 20px;
+    width: 88%;
+    max-width: 400px;
+    padding: 35px 22px;
     text-align: center;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 24px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
 }
 
 h1 {
-    font-size: 25px;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #dbeafe;
     margin-bottom: 25px;
 }
 
 button {
-    padding: 15px 30px;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
     border: none;
     border-radius: 14px;
     background: #38bdf8;
     color: #0f172a;
-    font-size: 18px;
+    font-family: Tahoma, sans-serif;
+    font-size: 17px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
 }
 
 button:active {
-    transform: scale(0.96);
+    transform: scale(0.97);
 }
 
 #message {
     display: none;
     margin-top: 25px;
-    font-size: 25px;
+    padding: 15px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 22px;
     font-weight: bold;
     animation: appear 0.4s ease;
 }
@@ -65,6 +83,7 @@ button:active {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -76,16 +95,32 @@ button:active {
 <body>
 
 <div class="container">
-    <h1>سلام، خوش اومدی! 👋</h1>
 
-    <button onclick="showMessage()">اینجا کلیک کن</button>
+    <h1>سلام رفیق! 👋</h1>
+    <p>یکی از دکمه‌های زیر رو انتخاب کن</p>
 
-    <div id="message">سلام خوبی؟ 😊</div>
+    <button onclick="showMessage('سلام، خوش آمدی! 💙')">
+        سلام خوش آمدی
+    </button>
+
+    <button onclick="showMessage('احوالت؟ 😊')">
+        مقدمه اسم
+    </button>
+
+    <div id="message"></div>
+
 </div>
 
 <script>
-function showMessage() {
-    document.getElementById("message").style.display = "block";
+function showMessage(text) {
+    const message = document.getElementById("message");
+
+    message.style.display = "block";
+    message.textContent = text;
+
+    message.style.animation = "none";
+    message.offsetHeight;
+    message.style.animation = "appear 0.4s ease";
 }
 </script>
 
